@@ -7,5 +7,6 @@ klikniej przykładowo w 3, na ekranie wyświetli się 1(pierwsza cyfra potrzebna
 analogicznie użytkownik kliknie potem przykładowo 9, a na ekranie wyświetli się 0(druga cyfra potrzebna do 
 podzielenia wyniku, aby wyszło 15). I tak dalej aż wyjdzie 102 wynik działania 1530 / 102 = 15, czyli nasza przepowiednia 
 W tym momencie jest to czysty kalkulator w javie, ale jest to wersja 0.00 Alpha 
-
+aktualizacja 0.1
+opszerna aktualizacja zmieniająca kod w javie na aplikacje webową. Dołączone 3 pliki html, css i java script. 
 //zmiana
