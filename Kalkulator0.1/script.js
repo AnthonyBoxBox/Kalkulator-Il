@@ -1,32 +1,32 @@
-const liczby = document.querySelectorAll('.liczba')
-const operatory = document.querySelectorAll('.operator')
-const wyczysc = document.querySelector('.wyczysc')
-const usun = document.querySelector('.usun')
-const rownosc = document.querySelector('.rownosc')
-const wynikPoprzednie = document.querySelector('.poprzednie-dzialanie')
-const wynikAktualne = document.querySelector('.aktualne-dzialanie')
+const liczby = document.querySelectorAll('.liczba') // Zbieramy wszystkie elementy z klasą 'liczba'
+const operatory = document.querySelectorAll('.operator') // Zbieramy wszystkie elementy z klasą 'operator'
+const wyczysc = document.querySelector('.wyczysc') // Znajdujemy element z klasą 'wyczysc'
+const usun = document.querySelector('.usun') // Znajdujemy element z klasą 'usun'
+const rownosc = document.querySelector('.rownosc') // Znajdujemy element z klasą 'rownosc'
+const wynikPoprzednie = document.querySelector('.poprzednie-dzialanie') // Znajdujemy element z klasą 'poprzednie-dzialanie'
+const wynikAktualne = document.querySelector('.aktualne-dzialanie') // Znajdujemy element z klasą 'aktualne-dzialanie'
 
-
-let aktualneDzialanie = ''
-let operacja = undefined
-let poprzednieDzialanie = ''
+let aktualneDzialanie = '' // Zmienna przechowująca aktualne wprowadzone działanie
+let operacja = undefined // Zmienna przechowująca aktualnie wybraną operację
+let poprzednieDzialanie = '' // Zmienna przechowująca poprzednie wprowadzone działanie
 
 const oblicz = () => {
   let dzialanie
-  if(!poprzednieDzialanie || !aktualneDzialanie) {
+  
+  if (!poprzednieDzialanie || !aktualneDzialanie) {
     return
   }
 
-  const poprzednie = parseFloat(poprzednieDzialanie)
-  const aktualne = parseFloat(aktualneDzialanie)
+  const poprzednie = parseFloat(poprzednieDzialanie) // Konwertujemy poprzednie działanie na liczbę zmiennoprzecinkową
+  const aktualne = parseFloat(aktualneDzialanie) // Konwertujemy aktualne działanie na liczbę zmiennoprzecinkową
 
-  if(isNaN(poprzednie) || isNaN(aktualne)) {
+  if (isNaN(poprzednie) || isNaN(aktualne)) {
     return
   }
 
   switch (operacja) {
     case '+':
-      dzialanie = poprzednie + aktualne
+      dzialanie = poprzednieliczba + aktualne
       break
       case '-':
         dzialanie = poprzednie - aktualne
@@ -35,7 +35,7 @@ const oblicz = () => {
         dzialanie = poprzednie * aktualne
       break
       case '÷':
-      if(aktualne === 0)
+      if (aktualne === 0)
       {
         wyczyscWynik()
         return
@@ -64,12 +64,12 @@ const oblicz = () => {
 }
 
 const wybierzOperacje = (operator) => {
-  if(aktualneDzialanie === '') {
+  if (aktualneDzialanie === '') {
     return
   }
-  if(poprzednieDzialanie !== '') {
+  if (poprzednieDzialanie !== '') {
     const poprzednie = wynikPoprzednie.innerText
-    if(aktualneDzialanie.toString() === '0' &&  poprzednie[poprzednie.length - 1] === '÷') {
+    if (aktualneDzialanie.toString() === '0' &&  poprzednie[poprzednie.length - 1] === '÷') {
       wyczyscWynik()
       return
     }
@@ -82,8 +82,8 @@ const wybierzOperacje = (operator) => {
 }
 
 const dodajLiczbe = (liczba) => {
-  if(liczba === '•') {
-    if(aktualneDzialanie.includes('.')) {
+  if (liczba === '•') {
+    if (aktualneDzialanie.includes('.')) {
       return
     }
     liczba = '.'
@@ -99,7 +99,7 @@ const usunLiczbe = () => {
 const zaktualizujWynik = () => {
   wynikAktualne.innerText = aktualneDzialanie
 
-  if(operacja != null) {
+  if (operacja != null) {
   wynikPoprzednie.innerText = poprzednieDzialanie + operacja
   } else {
     wynikPoprzednie.innerText = ''
