@@ -17,42 +17,42 @@ const oblicz = () => {
     return
   }
 
-  const poprzednie = parseFloat(poprzednieDzialanie) // Konwertujemy poprzednie działanie na liczbę zmiennoprzecinkową
-  const aktualne = parseFloat(aktualneDzialanie) // Konwertujemy aktualne działanie na liczbę zmiennoprzecinkową
+  const poprzednieliczba = parseFloat(poprzednieDzialanie) // Konwertujemy poprzednie działanie na liczbę zmiennoprzecinkową
+  const aktualneliczba = parseFloat(aktualneDzialanie) // Konwertujemy aktualne działanie na liczbę zmiennoprzecinkową
 
-  if (isNaN(poprzednie) || isNaN(aktualne)) {
+  if (isNaN(poprzednieliczba) || isNaN(aktualneliczba)) {
     return
   }
 
   switch (operacja) {
     case '+':
-      dzialanie = poprzednieliczba + aktualne
+      dzialanie = poprzednieliczba + aktualneliczba
       break
       case '-':
-        dzialanie = poprzednie - aktualne
+        dzialanie = poprzednieliczba - aktualneliczba
       break
       case '×':
-        dzialanie = poprzednie * aktualne
+        dzialanie = poprzednieliczba * aktualneliczba
       break
       case '÷':
-      if (aktualne === 0)
+      if (aktualneliczba === 0)
       {
         wyczyscWynik()
         return
       }
-        dzialanie = poprzednie / aktualne
+        dzialanie = poprzednieliczba / aktualneliczba
       break
       case '^':
-        dzialanie = Math.pow(poprzednie, aktualne)
+        dzialanie = Math.pow(poprzednieliczba, aktualneliczba)
       break
       case '%':
-        dzialanie = poprzednie / 100 * aktualne
+        dzialanie = poprzednieliczba / 100 * aktualneliczba
       break
       case '√':
-        dzialanie = Math.pow(poprzednie, 1 / aktualne)
+        dzialanie = Math.pow(poprzednieliczba, 1 / aktualneliczba)
       break
       case 'log':
-        dzialanie = Math.log(poprzednie) / Math.log(aktualne)
+        dzialanie = Math.log(poprzednieliczba) / Math.log(aktualneliczba)
       break
     default:
       return
